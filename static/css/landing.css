@@ -1,0 +1,237 @@
+/* ------------------------------------------------------------------ */
+/* Landing hero                                                        */
+/* ------------------------------------------------------------------ */
+
+.lhero {
+    padding: 4rem 2rem 5rem;
+    background: #ffffff;
+    text-align: center;
+}
+
+.lhero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* Badge */
+.lhero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #edf7f1;
+    color: #2d6a4f;
+    border: 1px solid #b7dfc8;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.35rem 1rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.01em;
+}
+
+.lhero-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #2d6a4f;
+    flex-shrink: 0;
+}
+
+/* Headline */
+.lhero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+}
+
+.lhero-title-accent {
+    color: #2d6a4f;
+    display: block;
+}
+
+/* Subtitle */
+.lhero-subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    margin-bottom: 2.25rem;
+}
+
+/* CTA buttons */
+.lhero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+}
+
+.lhero-btn {
+    display: inline-block;
+    background: var(--ink);
+    color: #ffffff;
+    padding: 0.8rem 2rem;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.lhero-btn:hover {
+    background: #2d6a4f;
+}
+
+/* ------------------------------------------------------------------ */
+/* Mock browser card                                                   */
+/* ------------------------------------------------------------------ */
+
+.lhero-mock {
+    width: 100%;
+}
+
+.lmock-browser {
+    background: #f3f2ef;
+    border: 1px solid #e2dfd8;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.07);
+}
+
+/* Traffic lights bar */
+.lmock-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e2dfd8;
+}
+
+.lmock-traffic {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.lmock-red    { background: #ff5f57; }
+.lmock-yellow { background: #ffbd2e; }
+.lmock-green  { background: #28c840; }
+
+/* Browser body */
+.lmock-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Stat cards row */
+.lmock-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.lmock-stat {
+    background: #ffffff;
+    border: 1px solid #e2dfd8;
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: left;
+}
+
+.lmock-stat-label {
+    font-size: 0.75rem;
+    color: #8a8780;
+    font-weight: 500;
+}
+
+.lmock-stat-value {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--ink);
+    line-height: 1.1;
+}
+
+.lmock-stat-plain {
+    font-family: var(--font-display);
+}
+
+.lmock-stat-sub {
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.lmock-sub-danger  { color: #c0392b; }
+.lmock-sub-success { color: #2d6a4f; }
+.lmock-sub-muted   { color: #8a8780; }
+
+/* Bar chart */
+.lmock-chart {
+    background: #ffffff;
+    border: 1px solid #e2dfd8;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.lmock-chart-row {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.lmock-chart-label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #4a4845;
+    text-align: right;
+}
+
+.lmock-chart-track {
+    height: 8px;
+    background: #ebebeb;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.lmock-chart-fill {
+    height: 100%;
+    border-radius: 999px;
+}
+
+.lmock-fill-amber  { background: #d4961a; }
+.lmock-fill-blue   { background: #3b82c4; }
+.lmock-fill-indigo { background: #6366a8; }
+
+/* ------------------------------------------------------------------ */
+/* Responsive                                                          */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+    .lhero-title {
+        font-size: 2.2rem;
+    }
+
+    .lmock-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .lhero-subtitle br {
+        display: none;
+    }
+}
