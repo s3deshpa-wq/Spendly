@@ -28,7 +28,7 @@
 
         <div class="lhero-actions">
             <a href="{{ url_for('register') }}" class="lhero-btn">Create free account</a>
-            <a href="#features" class="lhero-btn">See how it works</a>
+            <button type="button" class="lhero-btn" id="open-video-modal">See how it works</button>
         </div>
 
         <div class="lhero-mock">
@@ -110,5 +110,60 @@
         <a href="{{ url_for('register') }}" class="btn-primary">Create free account</a>
     </div>
 </section>
+
+<!-- Video modal -->
+<div id="video-modal" role="dialog" aria-modal="true" aria-label="How it works video" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.7);align-items:center;justify-content:center;">
+    <div id="video-modal-box" style="position:relative;width:min(860px,92vw);background:#000;border-radius:10px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.6);">
+        <button id="close-video-modal" aria-label="Close video" style="position:absolute;top:10px;right:12px;z-index:10;background:rgba(0,0,0,.6);border:none;color:#fff;font-size:22px;line-height:1;width:34px;height:34px;border-radius:50%;cursor:pointer;">&times;</button>
+        <div style="position:relative;padding-bottom:56.25%;height:0;">
+            <iframe id="video-iframe"
+                src=""
+                data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1"
+                title="How Spendly works"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                style="position:absolute;inset:0;width:100%;height:100%;border:0;">
+            </iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+    var modal   = document.getElementById('video-modal');
+    var box     = document.getElementById('video-modal-box');
+    var iframe  = document.getElementById('video-iframe');
+    var openBtn = document.getElementById('open-video-modal');
+    var closeBtn= document.getElementById('close-video-modal');
+
+    function openModal() {
+        iframe.src = iframe.dataset.src;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+    }
+
+    function closeModal() {
+        // Resetting src stops video playback immediately
+        iframe.src = '';
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+        openBtn.focus();
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    // Click outside the box closes the modal
+    modal.addEventListener('click', function (e) {
+        if (!box.contains(e.target)) closeModal();
+    });
+
+    // Escape key closes the modal
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+    });
+}());
+</script>
 
 {% endblock %}
